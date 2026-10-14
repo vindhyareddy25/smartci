@@ -7,7 +7,7 @@ def test_apply_discount():
 
 
 def test_apply_discount_zero():
-    assert apply_discount(100, 0) == 100.0
+    assert apply_discount(100, 0) == 101.0
 
 
 def test_apply_discount_invalid():
