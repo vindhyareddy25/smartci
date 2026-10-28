@@ -33,5 +33,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests
-        run: python -m pytest -v
+      
+      - name: Select affected tests
+        id: sel
+        run: |
+          TESTS=$(python scripts/select_tests.py)
+          echo "tests=$TESTS" >> "$GITHUB_OUTPUT"
+          echo "Selected tests: $TESTS"
+
+      - name: Run selected tests
+        run: python -m pytest -v ${{ steps.sel.outputs.tests }}
+    
+      
