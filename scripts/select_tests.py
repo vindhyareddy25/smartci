@@ -52,6 +52,8 @@ if __name__ == "__main__":
     selected = select_tests(changed)
 
     if selected:
-        print(" ".join(selected))
+          print(" ".join(selected))
     else:
-        print("No affected tests found.")
+          print(" ".join(sorted(set(TESTS.values()))))
+
+    
